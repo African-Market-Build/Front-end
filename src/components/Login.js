@@ -1,65 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
-class Login extends React.Component {
-  state = {
-    credentials: {
-      username: "",
-      password: "",
-    },
-  };
+const Login = () => {
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const [cred, setCred] = useState({
+    username: "",
+    password: "",
+  });
 
-  handleChange = (e) => {
-    this.setState({
-      credentials: {
-        ...this.state.credentials,
-        [e.target.name]: e.target.value,
-      },
+  const handleChange = (e) => {
+    setCred({
+      ...cred,
+      [e.target.name]: e.target.value,
     });
   };
 
-  login = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state.credentials);
-
     axios
-      .post(
-        "https://africas-market-place.herokuapp.com/api/auth/login",
-        this.state.credentials
-      )
+      .post("https://africas-market-place.herokuapp.com/api/auth/login", cred)
       .then((resp) => {
         console.log(resp);
-
         localStorage.setItem("token", resp.data.token);
-
-        // this.props.history.push("/protected");
+        navigate("/dashboard");
       })
       .catch((err) => {
-        console.log(err);
+        setError(err);
       });
   };
 
-  render() {
-    return (
+  return (
+    <div>
       <div>
-        <form onSubmit={this.login}>
-          <input
-            type="text"
-            name="username"
-            value={this.state.credentials.username}
-            onChange={this.handleChange}
-          />
-          <input
-            type="password"
-            name="password"
-            value={this.state.credentials.password}
-            onChange={this.handleChange}
-          />
-          <button>Log in</button>
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="username">Username:</label>
+            <input onChange={handleChange} name="username" id="username" />
+          </div>
+          <div>
+            <label htmlFor="password">Password:</label>
+            <input
+              onChange={handleChange}
+              name="password"
+              type="password"
+              id="password"
+            />
+          </div>
+          <button id="submit">Submit</button>
         </form>
+        {/* {error && <p id="error"> {error}</p>} */}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Login;
