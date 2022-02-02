@@ -17,7 +17,7 @@ const Dashboard = (props) => {
 
   useEffect(() => {
     AxiosWithAuth()
-      .get(`/items/`)
+      .get(`/items`)
       .then((resp) => {
         console.log(resp);
         setItems(resp.data);
