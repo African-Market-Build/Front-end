@@ -33,8 +33,8 @@ const StyledHeader = styled.div`
     padding-right: 24px;
   }
   button:hover {
-    background-color: rgb(24, 191, 85);
-    border: 1px solid rgb(24, 191, 85);
+    background-color: rgb(13, 110, 253);
+    border: 1px solid rgb(13, 110, 253);
     color: white;
   }
 `;
