@@ -65,7 +65,7 @@ const Dashboard = (props) => {
       {items.map((item) => {
         return (
           <Item
-            key={item.id}
+            key={item.item_id}
             item={item}
             handleDelete={handleDelete}
             handleEditSelect={handleEditSelect}
