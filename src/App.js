@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import PrivateRoute from "./components/PrivateRoute";
+import PrivateRoute from './PrivateRoute';
 
 import "./App.css";
 import Header from "./components/Header";
@@ -17,7 +17,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route exact path='/' element={<PrivateRoute/>}>
+            <Route exact path='/dashboard' element={<Dashboard/>}/>
+        </Route>
       </Routes>
     </BrowserRouter>
   );
