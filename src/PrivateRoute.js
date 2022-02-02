@@ -1,6 +1,5 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
-import Dashboard from './components/Dashboard';
 
 const PrivateRoute = () => {
     const auth = window.localStorage.getItem('token'); // determine if authorized, from context or however you're doing it

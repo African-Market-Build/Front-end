@@ -124,9 +124,9 @@ const initialFormValues = {
                 className="form-control mt-2"
               />
           </div>
-          <Button className="mt-2" type="submit" id="signupBtn" disabled={disabled}>
+          <button className="mt-2 btn btn-primary" type="submit" id="signupBtn" disabled={disabled}>
               Sign Up
-            </Button>
+            </button>
         </Form>
         </Container>
       </div>

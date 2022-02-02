@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 
@@ -56,7 +55,7 @@ const Login = () => {
               className="form-control mt-2"
             />
           </div>
-          <Button className="mt-2" id="submit">Submit</Button>
+          <button className="mt-2 btn btn-primary" id="submit">Submit</button>
         </Form>
         {/* {error && <p id="error"> {error}</p>} */}
       </div>
