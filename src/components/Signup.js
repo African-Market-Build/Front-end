@@ -3,6 +3,9 @@ import * as yup from "yup";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import SignupSchema from "../validation/signupSchema";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
 
 const initialFormValues = {
     username: "",
@@ -92,8 +95,9 @@ const initialFormValues = {
 
     return (
       <div className="signup container">
+        <Container>
         <h1>Sign Up</h1>
-        <form id="signup-form" onSubmit={onSubmit}>
+        <Form id="signup-form" onSubmit={onSubmit}>
           <div className="form-group submit">
             <div className="errors">
               <div>{formErrors.username}</div>
@@ -108,6 +112,7 @@ const initialFormValues = {
                 onChange={onChange}
                 name="username"
                 placeholder='username'
+                className="form-control mt-2"
               />
               <input
                 id="password-signup"
@@ -116,12 +121,14 @@ const initialFormValues = {
                 onChange={onChange}
                 name="password"
                 placeholder='password'
+                className="form-control mt-2"
               />
           </div>
-          <button type="submit" id="signupBtn" disabled={disabled}>
+          <Button className="mt-2" type="submit" id="signupBtn" disabled={disabled}>
               Sign Up
-            </button>
-        </form>
+            </Button>
+        </Form>
+        </Container>
       </div>
     );
   }
