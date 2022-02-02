@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import PrivateRoute from './PrivateRoute';
+import PrivateRoute from "./PrivateRoute";
 
 import "./App.css";
 import Header from "./components/Header";
@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Dashboard from "./components/Dashboard";
 import Logout from "./components/Logout";
+import AddItem from "./components/AddItem";
 
 function App() {
   return (
@@ -19,8 +20,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/logout" element={<Logout />} />
-        <Route exact path='/' element={<PrivateRoute/>}>
-            <Route exact path='/dashboard' element={<Dashboard/>}/>
+        <Route exact path="/" element={<PrivateRoute />}>
+          <Route exact path="/dashboard" element={<Dashboard />} />
+        </Route>
+        <Route exact path="/" element={<PrivateRoute />}>
+          <Route exact path="/addItem" element={<AddItem />} />
         </Route>
       </Routes>
     </BrowserRouter>
