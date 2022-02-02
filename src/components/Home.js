@@ -5,12 +5,12 @@ import "./home.css"
 const Home = () => {
   return (
     <div>
-    <section class="bgimage">
+    <section className="bgimage">
     </section>
     <div class="flex-grid-thirds">
-  <div class="col">Headline 1</div>
-  <div class="col">Headline 2</div>
-  <div class="col">Headline 3</div>
+  <div className="col">Headline 1</div>
+  <div className="col">Headline 2</div>
+  <div className="col">Headline 3</div>
 </div>
   </div>
   )
