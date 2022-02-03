@@ -41,19 +41,43 @@ const Dashboard = (props) => {
 
   return (
     <Container>
-      <div>
-        <h1>Items</h1>
+      <Button onClick={() => navigate("/addItem")} className="addItemBtn">
+        Click Here to Add Item
+      </Button>
+      <h1>Items</h1>
+      <div className="eachCard">
         {items.map((item) => {
           return (
             <Item key={item.item_id} item={item} handleDelete={handleDelete} />
           );
         })}
       </div>
-      <button onClick={() => navigate("/addItem")} className="addItemBtn">
-        Click Here to Add Item
-      </button>
     </Container>
   );
 };
 
 export default Dashboard;
+
+const Button = styled.button`
+  background: transparent;
+  border-radius: 3px;
+  border: 0px solid;
+  color: black;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  background-color: #000;
+  color: #ffffff;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 3px;
+  height: 2em;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  :hover {
+    background-color: rgb(13, 110, 253);
+    border: 1px solid rgb(13, 110, 253);
+    color: white;
+  }
+`;

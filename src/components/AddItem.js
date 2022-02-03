@@ -14,7 +14,7 @@ const AddItem = () => {
     item_description: "",
     item_price: "",
     available: true,
-    owner_id: "",
+    owner_id: 1,
   });
 
   const handleChange = (e) => {
@@ -22,7 +22,6 @@ const AddItem = () => {
       ...itemDetails,
       [e.target.name]: e.target.value,
     });
-    console.log(itemDetails);
   };
 
   const handleSubmit = (e) => {
@@ -85,7 +84,7 @@ const AddItem = () => {
           />
 
           <div>
-            <button className="AddItemFormBtn">Add Item</button>
+            <Button className="AddItemFormBtn">Add Item</Button>
           </div>
         </Form>
       </Container>
@@ -94,3 +93,26 @@ const AddItem = () => {
 };
 
 export default AddItem;
+
+const Button = styled.button`
+  background: transparent;
+  border-radius: 3px;
+  border: 0px solid;
+  color: black;
+
+  margin-top: 2rem;
+
+  background-color: #000;
+  color: #ffffff;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 3px;
+  height: 2em;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  :hover {
+    background-color: rgb(13, 110, 253);
+    border: 1px solid rgb(13, 110, 253);
+    color: white;
+  }
+`;
