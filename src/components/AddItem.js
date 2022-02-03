@@ -14,7 +14,7 @@ const AddItem = () => {
     item_description: "",
     item_price: "",
     available: true,
-    owner_id: "",
+    owner_id: 1,
   });
 
   const handleChange = (e) => {
@@ -22,7 +22,6 @@ const AddItem = () => {
       ...itemDetails,
       [e.target.name]: e.target.value,
     });
-    console.log(itemDetails);
   };
 
   const handleSubmit = (e) => {
