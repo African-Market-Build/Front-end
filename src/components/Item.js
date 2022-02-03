@@ -13,7 +13,7 @@ const Item = (props) => {
         <p>Price: ${item.item_price}</p>
       </div>
 
-      {/* <div>
+      <div>
         <button
           onClick={() => {
             handleDelete(item.item_id);
@@ -21,14 +21,7 @@ const Item = (props) => {
         >
           Delete
         </button>
-        <button
-          onClick={() => {
-            handleEditSelect(item.item_id);
-          }}
-        >
-          Edit
-        </button>
-      </div> */}
+      </div>
     </>
   );
 };

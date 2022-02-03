@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Container from "react-bootstrap/Container";
 
 import styled from "styled-components";
 
@@ -19,7 +20,6 @@ const Dashboard = (props) => {
     AxiosWithAuth()
       .get(`/items`)
       .then((resp) => {
-        console.log(resp);
         setItems(resp.data);
       })
       .catch((err) => {
@@ -39,40 +39,20 @@ const Dashboard = (props) => {
       });
   };
 
-  const handleEdit = (items) => {
-    AxiosWithAuth()
-      .put(`/items/${items.id}`, items)
-      .then((res) => {
-        setItems(res.data);
-        navigate(`/dashboard`);
-      })
-      .catch((err) => console.log({ err }));
-    setEditing(false);
-  };
-
-  const handleEditSelect = (id) => {
-    setEditing(true);
-    setEditId(id);
-  };
-
-  //   const handleEditCancel = () => {
-  //     setEditing(false);
-  //   };
-
   return (
-    <div>
-      <h1>Items</h1>
-      {items.map((item) => {
-        return (
-          <Item
-            key={item.item_id}
-            item={item}
-            handleDelete={handleDelete}
-            handleEditSelect={handleEditSelect}
-          />
-        );
-      })}
-    </div>
+    <Container>
+      <div>
+        <h1>Items</h1>
+        {items.map((item) => {
+          return (
+            <Item key={item.item_id} item={item} handleDelete={handleDelete} />
+          );
+        })}
+      </div>
+      <button onClick={() => navigate("/addItem")} className="addItemBtn">
+        Click Here to Add Item
+      </button>
+    </Container>
   );
 };
 
